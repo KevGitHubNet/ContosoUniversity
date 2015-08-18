@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
+    /*
     public class Instructor
     {
         public int ID { get; set; }
@@ -34,4 +35,19 @@ namespace ContosoUniversity.Models
         public virtual ICollection<Course> Courses { get; set; }
         public virtual OfficeAssignment OfficeAssignment { get; set; }
     }
+     */
+
+    
+        public class Instructor : Person
+        {
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+            [Display(Name = "Hire Date")]
+            public DateTime HireDate { get; set; }
+
+            public virtual ICollection<Course> Courses { get; set; }
+            public virtual OfficeAssignment OfficeAssignment { get; set; }
+        }
+    
+
 }

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models 
 {     
+    /*
     public class Student     
     {         
         public int ID { get; set; }
@@ -31,6 +32,17 @@ namespace ContosoUniversity.Models
             }
         }          
         public virtual ICollection<Enrollment> Enrollments { get; set; }     
-    } 
+    }
+     * */
+
+        public class Student : Person
+        {
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+            [Display(Name = "Enrollment Date")]
+            public DateTime EnrollmentDate { get; set; }
+
+            public virtual ICollection<Enrollment> Enrollments { get; set; }
+        }
 } 
 /** If you changed data that was created by the Seed method, that will be changed back to its original state because of the AddOrUpdate method that you're using in the Seed method. **/
